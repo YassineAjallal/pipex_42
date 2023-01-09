@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 13:57:54 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/09 23:01:21 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/09 23:24:04 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ char	**ft_envp(char **envp);
 void	ft_infile(char *infile);
 void	ft_outfile(char *outfile);
 void	ft_checkx(char *cmd);
-char **ft_quotes(char *cmd);
+char	**ft_quotes(char *cmd);
 
 void	ft_parent(int output, int *fd_pipe, char **av, char **envp);
 void	ft_child(int input, int *fd_pipe, char **av, char **envp);
+
+void	ft_errors(char *error, int ex);
 
 #endif

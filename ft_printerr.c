@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 23:40:09 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/09 17:40:23 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/09 23:23:55 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,10 @@ void	ft_perror(int fd, char *s, ...)
 		if (s[i])
 			i++;
 	}
+}
+
+void	ft_errors(char *error, int ex)
+{
+	ft_perror(2, "%s\n", error);
+	exit(ex);
 }

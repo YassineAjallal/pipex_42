@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 02:20:22 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/09 23:09:58 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/09 23:26:19 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,20 @@ char	*ft_cmdpath(char *cmd, char **envp)
 	return (0);
 }
 
-char **ft_quotes(char *cmd)
+char	**ft_quotes(char *cmd)
 {
-	char c;
-	char **quotes;
-	int i;
-	
+	char	c;
+	char	**quotes;
+	int		i;
+
 	i = 0;
 	c = 0;
-
-	while(cmd[i])
+	while (cmd[i])
 	{
-		if(cmd[i] == 39 || cmd[i] == 34)
+		if (cmd[i] == 39 || cmd[i] == 34)
 		{
 			c = cmd[i];
-			break;
+			break ;
 		}
 		i++;
 	}
