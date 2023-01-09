@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 13:57:37 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/09 17:39:05 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/09 23:02:27 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_child(int input, int *fd_pipe, char **av, char **envp)
 	dup2(fd_pipe[1], STDOUT_FILENO);
 	close(fd_pipe[1]);
 	close(fd_pipe[0]);
-	cmd = ft_split(av[2], ' ');
+	cmd = ft_quotes(av[2]);
 	fpath = ft_cmdpath(cmd[0], envp);
 	if (!fpath)
 	{
@@ -43,7 +43,7 @@ void	ft_parent(int output, int *fd_pipe, char **av, char **envp)
 	close(fd_pipe[1]);
 	dup2(output, STDOUT_FILENO);
 	close(output);
-	cmd = ft_split(av[3], ' ');
+	cmd = ft_quotes(av[3]);
 	fpath = ft_cmdpath(cmd[0], envp);
 	if (!fpath)
 	{
