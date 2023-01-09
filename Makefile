@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = pipex
-SRC = ft_cmd.c ft_printerr.c ft_pipex.c ft_files.c ft_quotes.c
+SRC = ft_cmd.c ft_printerr.c ft_pipex.c ft_files.c
 LIB = ./libft/libft.a
 
 OBJ = $(SRC:.c=.o)
