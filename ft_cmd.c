@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 02:20:22 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/09 23:26:19 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/10 11:51:35 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	**ft_envp(char **envp)
 	char	*dpath;
 	int		i;
 
-	dpath = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
+	dpath = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:.";
 	i = 0;
-	if (!envp)
+	if (!envp[i])
 	{
 		paths = ft_split(dpath, ':');
 		return (paths);
@@ -43,7 +43,7 @@ char	*ft_cmdpath(char *cmd, char **envp)
 	if (ft_strchr(cmd, '/'))
 		return (cmd);
 	paths = ft_envp(envp);
-	while (paths[i])
+	while (paths[i] && paths)
 	{
 		addslash = ft_strjoin(paths[i], "/");
 		fpath = ft_strjoin(addslash, cmd);
