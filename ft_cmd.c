@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 02:20:22 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/10 11:51:35 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:14:52 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ char	*ft_cmdpath(char *cmd, char **envp)
 	int		i;
 
 	i = 0;
-	paths = ft_envp(envp);
 	if (ft_strchr(cmd, '/'))
 		return (cmd);
 	paths = ft_envp(envp);
