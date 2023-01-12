@@ -7,7 +7,7 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
-	@echo "done"
+	@echo "libft : done"
 
 $(NAME):
 	@CC $(CFLAGS) -c $(SRC)
@@ -15,7 +15,7 @@ $(NAME):
 
 clean:
 	@rm -f $(OBJ)
-	@echo "OBJ deleted"
+	@echo "libft : OBJ deleted"
 
 fclean: clean
 	@rm -f $(NAME)
