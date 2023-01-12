@@ -9,10 +9,8 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 	@echo "done"
-
 $(NAME):
 	@CC $(CFLAGS) -o $(NAME) $(SRC) $(LIB)
-# @ar rc $(NAME) $(OBJ) $(LIB)
 
 clean:
 	@rm -f $(OBJ)
