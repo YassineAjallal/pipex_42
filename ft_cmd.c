@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 02:20:22 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/11 17:14:52 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:24:51 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,44 @@ char	**ft_envp(char **envp)
 	return (paths);
 }
 
-char	*ft_cmdpath(char *cmd, char **envp)
+char	*ft_cmd(char **paths, char *cmd)
 {
-	char	**paths;
 	char	*fpath;
 	char	*addslash;
 	int		i;
 
 	i = 0;
-	if (ft_strchr(cmd, '/'))
-		return (cmd);
-	paths = ft_envp(envp);
 	while (paths[i] && paths)
 	{
 		addslash = ft_strjoin(paths[i], "/");
 		fpath = ft_strjoin(addslash, cmd);
 		if (access(fpath, F_OK) == 0)
+		{
+			ft_free2d(paths, addslash);
 			return (fpath);
+		}
+		ft_free(fpath, addslash);
 		i++;
 	}
+	ft_free2d(paths, NULL);
 	return (0);
+}
+
+char	*ft_cmdpath(char *cmd, char **envp)
+{
+	char	**paths;
+	char	*fpath;
+	int		i;
+
+	i = 0;
+	if (ft_strchr(cmd, '/'))
+	{
+		ft_checkf(cmd, "pipex: no such file or directory:", 0);
+		return (cmd);
+	}
+	paths = ft_envp(envp);
+	fpath = ft_cmd(paths, cmd);
+	return (fpath);
 }
 
 char	**ft_quotes(char *cmd)

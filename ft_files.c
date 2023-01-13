@@ -6,40 +6,44 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:39:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/09 17:36:15 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:12:05 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pipex.h"
 
-void	ft_infile(char *infile)
+void	ft_checkf(char *file, char *msg, int ex)
 {
-	if (access(infile, F_OK) < 0)
+	if (access(file, F_OK) < 0)
 	{
-		ft_perror(2, "%s : ERROR : file not found", infile);
-		exit(0);
-	}
-	if (access(infile, R_OK) < 0)
-	{
-		ft_perror(2, "%s : ERROR -> Read Permission", infile);
-		exit(0);
+		ft_perror(2, "%s %s", msg, file);
+		exit(ex);
 	}
 }
 
-void	ft_outfile(char *outfile)
+void	ft_checkw(char *file, int ex)
 {
-	if (access(outfile, W_OK) < 0)
+	if (access(file, W_OK) < 0)
 	{
-		ft_perror(2, "%s : ERROR : file not found", outfile);
-		exit(1);
+		ft_perror(2, "pipex: %s: permission denied\n", file);
+		exit(ex);
 	}
 }
 
-void	ft_checkx(char *cmd)
+void	ft_checkr(char *file, int ex)
+{
+	if (access(file, R_OK) < 0)
+	{
+		ft_perror(2, "pipex: %s: permission denied\n", file);
+		exit(ex);
+	}
+}
+
+void	ft_checkx(char *cmd, int ex)
 {
 	if (access(cmd, X_OK) < 0)
 	{
-		ft_perror(2, "%s : ERROR -> Execute Permission", cmd);
-		exit(126);
+		ft_perror(2, "pipex: %s: permission denied\n", cmd);
+		exit(ex);
 	}
 }
