@@ -6,21 +6,16 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 13:57:54 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/13 12:25:36 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:24:45 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PIPEX_H
 # define FT_PIPEX_H
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/wait.h>
 # include <fcntl.h>
-# include <string.h>
-# include <errno.h>
 # include <stdarg.h>
+# include <unistd.h>
 # include "./libft/libft.h"
 
 // ft_printerror.c
